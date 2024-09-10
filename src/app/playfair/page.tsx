@@ -16,39 +16,34 @@ import {
 import { Textarea } from "@/components/ui/textarea"
 import { Heading1 } from '@/components/ui/headings'
 
-import { vigenereCipherMethodTheory as cipherMethodTheory } from '@/utils/theory'
-import { encryptVigenere, decryptVigenere } from '@/utils/functions'
+import { playfairCipherMethodTheory as cipherMethodTheory } from '@/utils/theory'
+import { encryptPlayfair, decryptPlayfair } from '@/utils/functions'
 import CryptContainer from '@/components/CryptContainer'
 
-
-function Vigenere() {
+function PlayfairCipher() {
   const [text, setText] = useState<string>('')
   const [key, setKey] = useState<string>('')
   const [result, setResult] = useState<string>('')
 
   const performEncryption = () => {
-    if(key.length > text.length){
-      alert("key length is invalid")
-    }
-    else if(key.length === 0){
+    if (key.length === 0) {
       alert("Key cannot be empty")
+    } else {
+      setResult(encryptPlayfair(text, key))
     }
-    setResult(encryptVigenere(text, key))
   }
 
-  const performDecryption =  () => {
-    if(key.length > text.length){
-      alert("key length is invalid")
-    }
-    else if(key.length === 0){
+  const performDecryption = () => {
+    if (key.length === 0) {
       alert("Key cannot be empty")
+    } else {
+      setResult(decryptPlayfair(text, key))
     }
-    setResult(decryptVigenere(text, key))
   }
 
   return (
     <CryptContainer cipherMethodTheory={cipherMethodTheory} >
-      {/* ENCRYPT DECRYPt*/}
+      {/* ENCRYPT DECRYPT */}
       <Card className="w-[26rem] h-fit flex-shrink-0 my-6 md:my-0">
         <CardHeader className='mb-3'>
           <CardTitle>Encrypt/Decrypt</CardTitle>
@@ -67,25 +62,25 @@ function Vigenere() {
               </div>
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="key">Key</Label>
-                <Input 
-                value={key}
-                onChange={(e) => { setKey(e.target.value) }}
-                id="key" 
-                type='text' 
-                placeholder="Key" />
+                <Input
+                  value={key}
+                  onChange={(e) => { setKey(e.target.value) }}
+                  id="key"
+                  type='text'
+                  placeholder="Key" />
               </div>
             </div>
           </form>
         </CardContent>
 
         <CardFooter className="flex justify-between">
-          <Button 
-          onClick={()=>{performEncryption()}}
+          <Button
+            onClick={() => { performEncryption() }}
           >Encrypt</Button>
-          
-          <Button 
-          onClick={()=>{performDecryption()}}
-          variant="secondary">Decrypt</Button>
+
+          <Button
+            onClick={() => { performDecryption() }}
+            variant="secondary">Decrypt</Button>
         </CardFooter>
 
         <CardContent>
@@ -93,8 +88,8 @@ function Vigenere() {
             <div className='w-full'>
               <Label htmlFor='result'>Result</Label>
               <Textarea
-              disabled
-              value={result}
+                disabled
+                value={result}
                 rows={4}
                 id='result'
                 placeholder="Result"
@@ -104,8 +99,8 @@ function Vigenere() {
           </div>
         </CardContent>
       </Card>
-    </CryptContainer> 
+    </CryptContainer>
   )
 }
 
-export default Vigenere
+export default PlayfairCipher

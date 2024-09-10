@@ -5,7 +5,7 @@ import { Heading1, Heading2 } from './ui/headings'
 function Description({cipherMethod, className=''}: {cipherMethod: {title: string, overview: string, howItWorks: string[], history?: string}, className?:string}) {
   return (
     
-    <div className={`${className} w-full max-w-2xl md:px-4`}>
+    <div className={`${className} w-full max-w-3xl md:px-4`}>
 
     {/* TITLE AND OVERVIEW */}
     <div className="mb-5">

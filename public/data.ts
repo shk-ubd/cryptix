@@ -35,12 +35,12 @@ export const navLinks = [
         link: '/vigenere',
     },
     {
-        title: 'Playfair',
-        link: '/playfair',
-    },
-    {
         title: 'One-Time Pad',
         link: '/otp',
+    },
+    {
+        title: 'Playfair',
+        link: '/playfair',
     },
 ];
 

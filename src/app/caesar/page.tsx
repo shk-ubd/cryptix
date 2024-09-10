@@ -17,7 +17,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { Heading1 } from '@/components/ui/headings'
 
 import { caesarCipherEncrypt, caesarCipherDecrypt } from '@/utils/functions'
-import { caesarCipherMethodTheory } from '@/utils/theory'
+import { caesarCipherMethodTheory as cipherMethodTheory } from '@/utils/theory'
+import CryptContainer from '@/components/CryptContainer'
 
 function CaesarCipher() {
   const [shift, setShift] = useState(3)
@@ -34,12 +35,9 @@ function CaesarCipher() {
 
 
   return (
-    <main className='py-24  px-7 md:px-18 lg:px-20 min-h-screen'>
-      <section className='flex flex-col-reverse md:flex-row justify-between items-center  '>
-
-        {/* CONTENT */}
-        <Description cipherMethod={caesarCipherMethodTheory} />
-
+    
+    <CryptContainer cipherMethodTheory={cipherMethodTheory}>
+      
         {/* ENCRYPT DECRYPt*/}
         <Card className="w-[26rem] h-fit flex-shrink-0 my-6 md:my-0">
           <CardHeader className='mb-3'>
@@ -98,15 +96,7 @@ function CaesarCipher() {
             </div>
           </CardContent>
         </Card>
-
-        <Heading1 text={caesarCipherMethodTheory.title} className='md:hidden' />
-
-
-
-
-
-      </section>
-    </main>
+    </CryptContainer>
   )
 }
 
