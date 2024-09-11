@@ -1,25 +1,26 @@
 export const featuredCards = [
     {
         title: 'Caesar Cipher',
-        description: 'A simple Caesar Cipher implementation',
+        description: 'Explore the Caesar Cipher, a foundational encryption technique that shifts characters for secure communication.',
         link: '/caesar',
     },
     {
         title: 'Vigenère Cipher',
-        description: 'A simple Vigenère Cipher implementation',
+        description: 'Delve into the Vigenère Cipher, a classical polyalphabetic encryption method for enhanced data security.',
         link: '/vigenere',
     },
     {
         title: 'Playfair Cipher',
-        description: 'A simple Playfair Cipher implementation',
+        description: 'Discover the Playfair Cipher, a digraph substitution cipher used for encoding pairs of letters.',
         link: '/playfair',
     },
     {
         title: 'One-Time Pad',
-        description: 'A simple One-Time Pad Cipher implementation',
+        description: 'Learn about the One-Time Pad, a theoretically unbreakable cipher for encrypting messages with perfect secrecy.',
         link: '/otp',
     },
 ];
+
 
 export const navLinks = [
     {

@@ -10,8 +10,9 @@ function CryptContainer({cipherMethodTheory, children }: any) {
 
       {/* CONTENT */}
       <Description cipherMethod={cipherMethodTheory} />
-
+<div className='md:mt-6'>
       {children}
+      </div>
       
       <Heading1 text={cipherMethodTheory.title} className='md:hidden' />
     </section>

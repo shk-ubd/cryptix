@@ -1,22 +1,39 @@
 import React from 'react'
 import { Heading1, Heading2 } from './ui/headings'
+import { motion } from 'framer-motion'
 
-
-function Description({cipherMethod, className=''}: {cipherMethod: {title: string, overview: string, howItWorks: string[], history?: string}, className?:string}) {
+function Description({ cipherMethod, className = '' }: { cipherMethod: { title: string, overview: string, howItWorks: string[], history?: string }, className?: string }) {
   return (
-    
-    <div className={`${className} w-full max-w-3xl md:px-4`}>
 
-    {/* TITLE AND OVERVIEW */}
-    <div className="mb-5">
-      <Heading1 text={cipherMethod.title} />
-      <p className='text-justify'>{cipherMethod.overview}</p>
-    </div>
+    <motion.div
+      variants={{
+        hidden: { opacity: 0 },
+        show: {
+          opacity: 1,
+          transition: {
+            staggerChildren: 0.25,
+            duration: 0.5
+          }
+        }
+      }}
+      initial="hidden"
+      animate="show"
+      className={`${className} w-full max-w-3xl md:px-4`}>
 
-    {/* HOW IT WORKS */}
-    {
-      cipherMethod.howItWorks && 
-        <div className='mb-5'>
+      {/* TITLE AND OVERVIEW */}
+      <motion.div
+      variants={{hidden:{opacity:0, x: -100}, show:{opacity:1, x:0}}}
+      className="mb-5">
+        <Heading1 text={cipherMethod.title} />
+        <p className='text-justify'>{cipherMethod.overview}</p>
+      </motion.div>
+
+      {/* HOW IT WORKS */}
+      {
+        cipherMethod.howItWorks &&
+        <motion.div
+        variants={{hidden:{opacity:0, x: -100}, show:{opacity:1, x:0}}}
+        className='mb-5'>
           <Heading2 text='How it works' />
           <ul>
             {cipherMethod.howItWorks.map((step, index) => (
@@ -24,22 +41,21 @@ function Description({cipherMethod, className=''}: {cipherMethod: {title: string
 
             ))}
           </ul>
-        </div>
-    }
+        </motion.div>
+      }
 
-    {/* HISTORY */}
-    {
-      cipherMethod.history &&
-      <div className='mb-5'>
-        <Heading2 text='History' />
-        <p className=''>{cipherMethod.history}</p>
-      </div>
-    }
+      {/* HISTORY */}
+      {
+        cipherMethod.history &&
+        <motion.div
+        variants={{hidden:{opacity:0, x: -100}, show:{opacity:1, x:0}}}
+        className='mb-5'>
+          <Heading2 text='History' />
+          <p className=''>{cipherMethod.history}</p>
+        </motion.div>
+      }
 
-    <div>
-
-    </div>
-  </div>
+    </motion.div>
   )
 }
 

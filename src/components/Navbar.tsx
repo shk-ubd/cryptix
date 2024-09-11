@@ -9,26 +9,26 @@ function Navbar() {
   console.log(pathname);
   
   return (
-    <div className='fixed top-6 w-full max-w-screen flex items-start justify-between text-gray-200 px-10'>
-    <Logo width={150}/>
-    <nav className=' border px-8 py-2 rounded-xl  bg-[#000000] border-gray-200/40' >
-        <ul className='flex gap-4 '>
+    // <div className='fixed top-6 w-full max-w-screen flex items-start justify-between text-gray-200 px-10'>
+    // <Logo width={150}/>
+    <div className='w-full flex justify-center'>
+      <nav className='bg-neutral-950 bg-opacity-75 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] w-full md:w-fit fixed py-5 top-0 rounded-none  md:top-6 md:border px-8 md:py-2 md:rounded-xl   md:border-gray-200/40 min-w-fit' >
+        <ul className='flex gap-4 justify-center flex-wrap md:flex-nowrap '>
           {
             navLinks.map((item, index) => (
-              <li key={index} className= {`py-1 px-4 rounded-lg hover:bg-[#1b1b1b] hover:text-white transition-all duration-300 ${pathname === item.link ? "text-white bg-[#1b1b1b]":"text-gray-300 "}`}>
-                <Link  href={item.link}>{item.title}</Link>
+              <Link key={index}  href={item.link}>
+              <li className= {`flex-shrink-0 py-1 px-4 rounded-lg hover:bg-[#1b1b1b] hover:text-white transition-all duration-300 ${pathname === item.link ? "text-white bg-[#1b1b1b]":"text-gray-300 "}`}>
+               {item.title}
               </li>
+              </Link>
             ))
           }
             
         </ul>
     </nav>
-    <div className='w-10'>
-      
-
     </div>
 
-    </div>
+    // </div>
   )
 }
 
