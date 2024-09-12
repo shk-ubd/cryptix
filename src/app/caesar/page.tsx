@@ -1,7 +1,6 @@
 'use client'
 import React, { useState } from 'react'
 
-import Description from '@/components/Description'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from "@/components/ui/button"
@@ -14,7 +13,6 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
-import { Heading1 } from '@/components/ui/headings'
 
 import { caesarCipherEncrypt, caesarCipherDecrypt } from '@/utils/functions'
 import { caesarCipherMethodTheory as cipherMethodTheory } from '@/utils/theory'
@@ -24,13 +22,14 @@ function CaesarCipher() {
   const [shift, setShift] = useState(3)
   const [text, setText] = useState('')
   const [result, setResult] = useState('')
+  const [shiftOn, setShiftOn] = useState(false)
 
   const performEncryption = () => {
-    setResult(caesarCipherEncrypt(text))
+    setResult(caesarCipherEncrypt(text, shift))
   }
 
   const performDecryption = () => {
-    setResult(caesarCipherDecrypt(text))
+    setResult(caesarCipherDecrypt(text, shift))
   }
 
 
@@ -58,7 +57,7 @@ function CaesarCipher() {
                 <div className="flex flex-col space-y-1.5">
                   <Label htmlFor="shift">Shift</Label>
                   <Input
-                  disabled 
+                  disabled={!shiftOn} 
                   value={shift}
                   onChange={(e) => { setShift(parseInt(e.target.value)) }}
                   id="shift" 
@@ -66,11 +65,24 @@ function CaesarCipher() {
                   min={0} 
                   placeholder="Shift value" />
                 </div>
+                <div className="flex items-center w-40 justify-start">
+                  <Label htmlFor="shiftOn" className='w-full'>Enable custom shift</Label>
+                  <Input
+                  checked={shiftOn}
+                  className='w-5 h-5'
+                  // value={shiftOn}
+                  onChange={(e) => { setShiftOn(e.target.checked);
+                    setShift(3) }}
+                  id="shifton" 
+                  type='checkbox' 
+                  placeholder="Shift value" />
+                </div>
               </div>
             </form>
           </CardContent>
 
           <CardFooter className="flex justify-between">
+
             <Button 
             onClick={()=>{performEncryption()}}
             >Encrypt</Button>
@@ -78,6 +90,7 @@ function CaesarCipher() {
             <Button 
             onClick={()=>{performDecryption()}}
             variant="secondary">Decrypt</Button>
+
           </CardFooter>
 
           <CardContent>
@@ -89,8 +102,8 @@ function CaesarCipher() {
                 value={result}
                   rows={4}
                   id='result'
-                  placeholder="Result"
-                  className='!text-white result-textarea border-2 border-neutral-600 p-3 rounded-lg shadow-lg shadow-neutral-700/50 focus:outline-none focus:ring-2 focus:ring-neutral-800 transition duration-300'
+                  placeholder="Your encrypted or decrypted text will appear here"
+                  className='!text-white result-textarea !cursor-text border-2 border-neutral-600 p-3 rounded-lg shadow-lg shadow-neutral-700/50 focus:outline-none focus:ring-2 focus:ring-neutral-800 transition duration-300'
                 />
               </div>
             </div>

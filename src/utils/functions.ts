@@ -1,25 +1,25 @@
-export function caesarCipherEncrypt(plainText: string) {
+export function caesarCipherEncrypt(plainText: string, key: number) {
     let cipherText = ""
     for (let i = 0; i < plainText.length; i++) {
         let charCode = plainText.charCodeAt(i)
         if (charCode >= 65 && charCode <= 90) {
-            charCode = (charCode - 65 + 3) % 26 + 65
+            charCode = (charCode - 65 + key) % 26 + 65
         } else if (charCode >= 97 && charCode <= 122) {
-            charCode = (charCode - 97 + 3) % 26 + 97
+            charCode = (charCode - 97 + key) % 26 + 97
         }
         cipherText += String.fromCharCode(charCode)
     }
     return cipherText
 }
 
-export function caesarCipherDecrypt(cipherText: string) {
+export function caesarCipherDecrypt(cipherText: string, key: number) {
     let plainText = ""
     for (let i = 0; i < cipherText.length; i++) {
         let charCode = cipherText.charCodeAt(i)
         if (charCode >= 65 && charCode <= 90) {
-            charCode = (charCode - 65 - 3 + 26) % 26 + 65
+            charCode = (charCode - 65 - key + 26) % 26 + 65
         } else if (charCode >= 97 && charCode <= 122) {
-            charCode = (charCode - 97 - 3 + 26) % 26 + 97
+            charCode = (charCode - 97 - key + 26) % 26 + 97
         }
         plainText += String.fromCharCode(charCode);
     }

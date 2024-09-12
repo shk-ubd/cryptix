@@ -11,8 +11,9 @@ function Description({ cipherMethod, className = '' }: { cipherMethod: { title: 
         show: {
           opacity: 1,
           transition: {
+            ease: 'easeInOut',
             staggerChildren: 0.25,
-            duration: 0.5
+            
           }
         }
       }}
@@ -22,7 +23,7 @@ function Description({ cipherMethod, className = '' }: { cipherMethod: { title: 
 
       {/* TITLE AND OVERVIEW */}
       <motion.div
-      variants={{hidden:{opacity:0, x: -100}, show:{opacity:1, x:0}}}
+      variants={{hidden:{opacity:0, x: -50}, show:{opacity:1, x:0}}}
       className="mb-5">
         <Heading1 text={cipherMethod.title} />
         <p className='text-justify'>{cipherMethod.overview}</p>
@@ -32,7 +33,7 @@ function Description({ cipherMethod, className = '' }: { cipherMethod: { title: 
       {
         cipherMethod.howItWorks &&
         <motion.div
-        variants={{hidden:{opacity:0, x: -100}, show:{opacity:1, x:0}}}
+        variants={{hidden:{opacity:0, x: -50}, show:{opacity:1, x:0}}}
         className='mb-5'>
           <Heading2 text='How it works' />
           <ul>
@@ -48,7 +49,7 @@ function Description({ cipherMethod, className = '' }: { cipherMethod: { title: 
       {
         cipherMethod.history &&
         <motion.div
-        variants={{hidden:{opacity:0, x: -100}, show:{opacity:1, x:0}}}
+        variants={{hidden:{opacity:0, x: -50}, show:{opacity:1, x:0}}}
         className='mb-5'>
           <Heading2 text='History' />
           <p className=''>{cipherMethod.history}</p>
