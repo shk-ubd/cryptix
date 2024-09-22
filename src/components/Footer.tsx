@@ -6,7 +6,8 @@ function Footer() {
   return (
     <footer className='pt-6 pb-3 flex flex-col items-center gap-4'>
       <div className='h-[2px] w-[95%] bg-white/20'></div>
-      <div className='flex justify-between w-[90%]'>
+
+      <div className='flex flex-col md:flex-row justify-between w-[90%] gap-10 items-center'>
         <Logo />
         <p className='text-center text-gray-400 text-sm'>&copy; 2024 Cryptix. All rights reserved.</p>
 
