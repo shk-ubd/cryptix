@@ -43,6 +43,10 @@ export const navLinks = [
         title: 'Playfair',
         link: '/playfair',
     },
+    {
+        title: 'Rail Fence',
+        link: '/rail-fence',
+    },
 ];
 
 

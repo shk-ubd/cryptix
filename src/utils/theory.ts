@@ -63,3 +63,17 @@ export const otpCipherMethodTheory: cipherMethodDescription = {
     link: '/otp',
     history: 'The One-Time Pad was first described in 1882 by Frank Miller and later developed by Gilbert Vernam. It is the only encryption method that has been mathematically proven to be unbreakable when used correctly, but it is rarely used in practice due to difficulties in generating and sharing random keys securely.'
 }
+
+export const railFenceCipherMethodTheory: cipherMethodDescription = {
+    title: 'Rail Fence Cipher',
+    overview: 'The Rail Fence Cipher is a classical transposition cipher that encrypts a message by arranging it in a zigzag pattern across multiple "rails". This method is simple to implement and provides a basic level of security, making it an interesting example of early cryptography.',
+    howItWorks: [
+        "Choose the number of rails (depth) for the zigzag pattern. This will determine how the message is arranged.",
+        "Write the message in a zigzag pattern down and up across the rails. Start from the top rail, move downwards to the last rail, and then back up to the first rail, repeating this process until the entire message is written.",
+        "Once the message is arranged, read off each rail from left to right to create the ciphertext.",
+        "To decrypt, reverse the process: determine how many characters are in each rail based on the length of the ciphertext and the chosen depth.",
+        "Fill in the rails with the characters from the ciphertext, then read the characters in the zigzag pattern to reconstruct the original message."
+    ],
+    link: '/rail-fence',
+    history: 'The Rail Fence Cipher dates back to at least the 19th century and is often attributed to various historical contexts, including its use in World War I for secure communication. While not secure by modern standards, it serves as an educational tool for understanding basic concepts of encryption.'
+}
