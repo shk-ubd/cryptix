@@ -47,6 +47,14 @@ export const navLinks = [
         title: 'Rail Fence',
         link: '/rail-fence',
     },
+    {
+        title: 'Row Column',
+        link: 'row-column'
+    },
+    {
+        title: 'Hill Cipher',
+        link: '/hill',
+    }
 ];
 
 

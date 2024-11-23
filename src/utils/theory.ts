@@ -77,3 +77,32 @@ export const railFenceCipherMethodTheory: cipherMethodDescription = {
     link: '/rail-fence',
     history: 'The Rail Fence Cipher dates back to at least the 19th century and is often attributed to various historical contexts, including its use in World War I for secure communication. While not secure by modern standards, it serves as an educational tool for understanding basic concepts of encryption.'
 }
+
+export const hillCipherMethodTheory: cipherMethodDescription = {
+    title: 'Hill Cipher',
+    overview: 'The Hill cipher is a polygraphic substitution cipher based on linear algebra. It encrypts blocks of text using matrix multiplication, making it more secure than simple substitution ciphers. The key is a square matrix, and the plaintext is divided into blocks to be encrypted together.',
+    howItWorks: [
+        "Choose a key, which is a square matrix. The size of the matrix determines the block size (e.g., a 3x3 matrix encrypts 3 letters at a time).",
+        "Convert the plaintext into numerical form, where A=0, B=1, ..., Z=25. The plaintext must be padded to match the size of the key matrix if necessary.",
+        "Group the plaintext into blocks that correspond to the size of the key matrix. For any incomplete blocks, pad with a filler character (commonly 'x').",
+        "Multiply the key matrix by the plaintext block matrix. If the resulting values exceed 25, take the modulus 26 to ensure they map back to letters.",
+        "Convert the resulting numbers back to letters to get the ciphertext.",
+        "To decrypt, find the inverse of the key matrix modulo 26. Multiply the inverse matrix by the ciphertext block matrix and take the modulus 26 again to retrieve the original plaintext."
+    ],
+    link: '/hill',
+    history: 'The Hill cipher was invented by Lester S. Hill in 1929 and is notable for being one of the first polygraphic ciphers to be invented. It utilizes linear algebra and matrix operations, making it more complex and secure compared to earlier ciphers, although it can still be susceptible to certain attacks if the key is not chosen carefully.'
+}
+
+
+export const rowColumnCipherMethodTheory: cipherMethodDescription = {
+    title: 'Row-Column Transposition Cipher',
+    overview: 'The Row-Column Transposition Cipher is a classical technique that rearranges characters in the plaintext into a grid and reads them in a specified column order based on a keyword. This cipher is a type of transposition cipher, meaning it relies on reordering rather than substitution to obscure the original message.',
+    howItWorks: [
+        "Choose a keyword, which determines the column order. Each letter of the keyword corresponds to a column in the grid, and sorting the letters alphabetically provides the reading sequence.",
+        "Arrange the plaintext into rows within a matrix where the number of columns equals the length of the keyword. Add padding (e.g., underscores) if the plaintext does not perfectly fill the matrix.",
+        "To encrypt, read down the columns in the order determined by sorting the keyword alphabetically. Concatenate these values to produce the ciphertext.",
+        "For decryption, reverse the process by filling the matrix columns in the sorted keyword order, then read the matrix row by row to reconstruct the original plaintext."
+    ],
+    link: '/row-column',
+    history: 'The Row-Column Transposition Cipher dates back to early classical cryptography, where such techniques were common before more complex encryption methods were developed. It relies on positional shuffling and was widely used due to its simplicity and effectiveness in creating non-obvious patterns. However, it is vulnerable to frequency analysis if used alone, as the letters remain the same, only their positions are altered.'
+};
