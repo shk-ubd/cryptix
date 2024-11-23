@@ -38,7 +38,7 @@ function CaesarCipher() {
     <CryptContainer cipherMethodTheory={cipherMethodTheory}>
       
         {/* ENCRYPT DECRYPt*/}
-        <Card className="w-[26rem] h-fit flex-shrink-0 my-6 md:my-0">
+        <Card className="w-[26rem] h-fit flex-shrink-0 my-6 md:my-0 max-w-screen">
           <CardHeader className='mb-3'>
             <CardTitle>Encrypt/Decrypt</CardTitle>
             <CardDescription>Encrypt or Decrypt your text using Caesar Cipher Technique.</CardDescription>
